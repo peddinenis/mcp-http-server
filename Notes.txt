@@ -1,0 +1,12 @@
+mvn clean install
+
+mvn spring-boot:run
+
+Invoke-RestMethod -Uri "http://localhost:8080/api/chat/ask" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "question":"What is MCP?",
+    "sessionId":"session-rag-1",
+    "useRag":true
+  }' | ConvertTo-Json -Depth 5
