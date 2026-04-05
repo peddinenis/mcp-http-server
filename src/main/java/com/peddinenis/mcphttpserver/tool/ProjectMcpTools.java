@@ -4,9 +4,21 @@ import org.springframework.ai.mcp.annotation.McpTool;
 import org.springframework.ai.mcp.annotation.McpToolParam;
 import org.springframework.stereotype.Service;
 
+/**
+ * Provides MCP-exposed tools related to the current project.
+ * <p>
+ * This service contains methods that can be invoked through the MCP server to
+ * return information about the Java Spring Boot MCP assistant application.
+ */
 @Service
 public class ProjectMcpTools {
 
+    /**
+     * Returns a summary of the project in response to a user question.
+     *
+     * @param question the user question about the project
+     * @return a descriptive summary of the project's current capabilities
+     */
     @McpTool(description = "Get information about the Java Spring MCP agent assistant project")
     public String getProjectInfo(
             @McpToolParam(description = "User question about the project", required = true)
